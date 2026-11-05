@@ -1,0 +1,184 @@
+:root {
+  --fond: #f6f3ee;
+  --carte: #ffffff;
+  --texte: #1f2328;
+  --doux: #6b6f76;
+  --bord: #e6e1d8;
+  --accent: #2f7d6d;
+  --accent-fond: #e3f1ed;
+  --alerte: #b5562b;
+  --alerte-fond: #fbeadf;
+
+  --c-jeu: #3f6fd8;
+  --c-memoire: #8a4fc4;
+  --c-groupe: #d0811f;
+  --c-perso: #2f9a6a;
+  --c-cours: #5b6472;
+  --c-tampon: #9a8f7d;
+  --c-vie: #b07a5a;
+  --c-repos: #2f7d6d;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --fond: #16181d;
+    --carte: #20232a;
+    --texte: #eceef1;
+    --doux: #9aa0a8;
+    --bord: #30343c;
+    --accent: #5fc3ad;
+    --accent-fond: #1e3532;
+    --alerte: #f0956a;
+    --alerte-fond: #3a2a22;
+    --c-jeu: #7ea2f0;
+    --c-memoire: #b98ae6;
+    --c-groupe: #f0a650;
+    --c-perso: #5fcf98;
+    --c-cours: #a3abb8;
+    --c-tampon: #c2b7a4;
+    --c-vie: #d9a283;
+    --c-repos: #5fc3ad;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] { color-scheme: dark; }
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--fond);
+  color: var(--texte);
+  font: 16px/1.45 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  padding-bottom: calc(76px + env(safe-area-inset-bottom));
+}
+button { font: inherit; color: inherit; }
+
+.contenu {
+  max-width: 560px;
+  margin: 0 auto;
+  padding: calc(16px + env(safe-area-inset-top)) 16px 16px;
+}
+.vue > * + * { margin-top: 12px; }
+
+.jour-sur { margin: 0; color: var(--accent); font-weight: 600; font-size: 14px; text-transform: uppercase; letter-spacing: .06em; }
+.jour-titre { margin: 2px 0 0; font-size: 28px; line-height: 1.15; }
+.sous-titre { margin: 20px 0 0; font-size: 15px; color: var(--doux); font-weight: 600; }
+
+.carte {
+  background: var(--carte);
+  border: 1px solid var(--bord);
+  border-radius: 14px;
+  padding: 12px 14px;
+}
+
+/* Blocs horaires */
+.blocs { list-style: none; margin: 0; padding: 0; }
+.bloc {
+  display: grid;
+  grid-template-columns: 92px 1fr;
+  gap: 10px;
+  padding: 10px 0 10px 12px;
+  border-left: 4px solid var(--cat, var(--bord));
+  margin: 6px 0;
+  border-radius: 2px;
+}
+.blocs.compact .bloc { padding: 4px 0 4px 10px; margin: 4px 0; grid-template-columns: 86px 1fr; font-size: 14px; }
+.bloc-heure { white-space: nowrap; color: var(--doux); font-variant-numeric: tabular-nums; font-size: 14px; padding-top: 1px; }
+.bloc-corps { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.bloc-titre { font-weight: 550; overflow-wrap: anywhere; }
+.bloc-lieu { color: var(--doux); font-size: 13px; }
+.bloc.en-cours { background: color-mix(in srgb, var(--cat) 12%, transparent); border-radius: 0 10px 10px 0; }
+
+.cat-jeu { --cat: var(--c-jeu); }
+.cat-memoire { --cat: var(--c-memoire); }
+.cat-groupe { --cat: var(--c-groupe); }
+.cat-perso { --cat: var(--c-perso); }
+.cat-cours { --cat: var(--c-cours); }
+.cat-tampon { --cat: var(--c-tampon); }
+.cat-vie { --cat: var(--c-vie); }
+.cat-repos { --cat: var(--c-repos); }
+
+.badge {
+  display: inline-block;
+  align-self: flex-start;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--accent-fond);
+  color: var(--accent);
+}
+.badge-confirmer { background: var(--alerte-fond); color: var(--alerte); }
+
+.note { margin: 8px 0 0; font-size: 13px; color: var(--doux); }
+
+/* Échéances */
+.echeances { list-style: none; margin: 8px 0 0; padding: 0; display: grid; gap: 8px; }
+.echeance {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: flex-start;
+  background: var(--carte);
+  border: 1px solid var(--bord);
+  border-left: 4px solid var(--cat);
+  border-radius: 12px;
+  padding: 10px 12px;
+}
+.echeance.passee { opacity: .5; }
+.ech-gauche { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+.ech-date { font-size: 13px; color: var(--doux); }
+.ech-titre { font-weight: 600; overflow-wrap: anywhere; }
+.ech-note { font-size: 13px; color: var(--doux); }
+.ech-compte { flex: none; font-size: 13px; font-weight: 600; color: var(--doux); white-space: nowrap; }
+.ech-compte.proche { color: var(--alerte); }
+
+/* Conseil de la semaine */
+.conseil { background: var(--accent-fond); border-color: transparent; }
+.conseil-sur { margin: 0; font-size: 13px; font-weight: 700; color: var(--accent); }
+.conseil-texte { margin: 4px 0 0; }
+
+/* Semaine */
+.nav-semaine { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.nav-titre { display: flex; flex-direction: column; align-items: center; text-align: center; }
+.nav-dates { font-weight: 700; font-size: 18px; }
+.nav-sous { font-size: 13px; color: var(--doux); }
+.btn {
+  width: 44px; height: 44px;
+  border-radius: 12px;
+  border: 1px solid var(--bord);
+  background: var(--carte);
+  font-size: 22px;
+  cursor: pointer;
+}
+.lien { background: none; border: 0; padding: 4px 0; color: var(--accent); font-size: 14px; cursor: pointer; text-decoration: underline; }
+.jour-ligne { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.jour-nom { font-weight: 700; }
+.jour.aujourdhui { border: 2px solid var(--accent); box-shadow: 0 2px 12px color-mix(in srgb, var(--accent) 20%, transparent); }
+.jour.passe { opacity: .55; }
+.jour.jour-repos { background: var(--accent-fond); border-color: transparent; }
+.echeance-mini { margin: 6px 0 0; font-size: 14px; font-weight: 600; color: var(--cat); }
+
+/* Barre d'onglets */
+.onglets {
+  position: fixed;
+  left: 0; right: 0; bottom: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  background: color-mix(in srgb, var(--carte) 92%, transparent);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-top: 1px solid var(--bord);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+.onglet {
+  display: flex; flex-direction: column; align-items: center; gap: 2px;
+  background: none; border: 0;
+  padding: 10px 4px;
+  font-size: 12px;
+  color: var(--doux);
+  cursor: pointer;
+}
+.onglet-ico { font-size: 18px; line-height: 1; }
+.onglet[aria-current="page"] { color: var(--accent); font-weight: 700; }

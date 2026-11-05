@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Calendrier de Vie</title>
+  <meta name="description" content="Mon planning de l'année : aujourd'hui, la semaine et les échéances.">
+  <meta name="theme-color" content="#f6f3ee" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#16181d" media="(prefers-color-scheme: dark)">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Calendrier">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main id="contenu" class="contenu"></main>
+  <nav class="onglets" aria-label="Vues">
+    <button class="onglet" data-vue="aujourdhui"><span class="onglet-ico" aria-hidden="true">●</span>Aujourd'hui</button>
+    <button class="onglet" data-vue="semaine"><span class="onglet-ico" aria-hidden="true">▦</span>Semaine</button>
+    <button class="onglet" data-vue="echeances"><span class="onglet-ico" aria-hidden="true">⚑</span>Échéances</button>
+  </nav>
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
