@@ -132,8 +132,8 @@
       blocs = P.JOURS[s].map((b) => ({ ...b }));
     } else if (speSet.has(s)) {
       blocs = (P.HORAIRES_ECOLE || [["09:30", "16:30"]]).map(([debut, fin]) => ({ debut, fin, cat: "cours", titre: speSet.get(s), lieu: "Octagone" }));
-    } else if (P.FIN_ANNEE && s >= P.FIN_ANNEE) {
-      // Après la fin de l'année scolaire : rien de prévu (on peut toujours ajouter des JOURS).
+    } else if ((P.FIN_ANNEE && s >= P.FIN_ANNEE) || (P.DEBUT_ANNEE && s < P.DEBUT_ANNEE)) {
+      // Avant le début ou après la fin du planning : rien de prévu (on peut toujours ajouter des JOURS).
       return { blocs: [], notes: [], repos: false, vide: true };
     } else {
       blocs = (P.SEMAINE_TYPE[d.getDay()] || []).map((b) => ({ ...b }));

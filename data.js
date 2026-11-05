@@ -230,6 +230,8 @@ const CONFLITS = [
 
 // Fin de l'année scolaire : à partir de cette date, la semaine type ne s'affiche plus
 // (jours vides). Pour une nouvelle année, change cette date et les données.
+// Début du planning : avant cette date, les jours sont vides.
+const DEBUT_ANNEE = "2026-11-05";
 const FIN_ANNEE = "2027-07-26";
 
 // Horaires des cours à l'école (cours, reviews de sprint et de milestone).
@@ -243,5 +245,5 @@ const INFO_JEUDI = "Permanence mémoires 10h-18h (rendez-vous avec le prof possi
 
 window.PLANNING = {
   CATEGORIES, SEMAINE_TYPE, VENDREDIS_SPE, REPOS, FERMETURES,
-  ECHEANCES, SEMAINES, JOURS, INFO_JEUDI, INFO_MARDI, HORAIRES_ECOLE, FIN_ANNEE, TACHES, RAPPELS, CONFLITS,
+  ECHEANCES, SEMAINES, JOURS, INFO_JEUDI, INFO_MARDI, HORAIRES_ECOLE, FIN_ANNEE, DEBUT_ANNEE, TACHES, RAPPELS, CONFLITS,
 };

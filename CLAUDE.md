@@ -35,7 +35,8 @@ sous forme de PWA publiée sur https://trijeux.github.io/Calendrier-de-Vie/ (Git
 - Sam : courses le matin, ménage l'après-midi. Dim : libre (2h de perso en option).
 - Imprévus fréquents (famille, grand-mère).
 
-## Fin d'année
+## Début et fin d'année
+- Avant le 05/11/2026 (`DEBUT_ANNEE`), les jours sont vides.
 - L'école finit en juillet : à partir du 26/07/2027 (`FIN_ANNEE` dans `data.js`), les jours sont vides. L'appli n'est pas limitée dans le temps : l'utilisateur veut la réutiliser les années suivantes.
 
 ## Projet de groupe (planning reçu le 05/11/2026)
