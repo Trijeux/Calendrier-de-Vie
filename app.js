@@ -149,6 +149,7 @@
       return { ...b, cat: f, titre: `Priorité de la semaine : ${labelCat(f)}` };
     });
 
+    if (d.getDay() === 2 && !fermeture && P.INFO_MARDI) notes.push(P.INFO_MARDI);
     if (d.getDay() === 4 && !fermeture) notes.push(P.INFO_JEUDI);
     return { blocs, notes, repos: false };
   }

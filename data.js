@@ -84,6 +84,7 @@ const ECHEANCES = [
   { date: "2026-11-20", heure: "matin", cat: "groupe",  titre: "Sprint 3 review (groupe, à distance)", note: "Exceptionnellement un vendredi." },
   { date: "2026-12-03", heure: "matin", cat: "groupe",  titre: "Sprint 4 review (groupe, à distance)" },
   { date: "2026-12-17", heure: "matin", cat: "groupe",  titre: "Sprint 5 review (groupe, à distance)", note: "Même jour que la présentation du jeu : à vérifier avec le groupe." },
+  { date: "2026-12-22", heure: "14:00", cat: "groupe",  titre: "Build final avant la MS2 review (groupe)" },
   { date: "2026-12-23", heure: "",      cat: "groupe",  titre: "MS2 review : PoC / boucle principale (groupe, présentiel)", note: "Exceptionnellement un mercredi." },
   { date: "2026-11-26", heure: "13:30", cat: "perso",   titre: "Présentation des projets perso (Solo Rhyme + jeu de cartes)", lieu: "Salle Leman" },
   { date: "2026-12-17", heure: "09:30", cat: "jeu",     titre: "F3 Présentation Advanced Specialised Project (le jeu)" },
@@ -94,6 +95,7 @@ const ECHEANCES = [
   { date: "2027-01-15", heure: "09:30", cat: "memoire", titre: "Rendu du Major Project Proposal (Portfolio Creative Studio 3)" },
   { date: "2027-01-29", heure: "09:30", cat: "memoire", titre: "F1.3 Présentation orale : méthodologie" },
   { date: "2027-02-04", heure: "",      cat: "groupe",  titre: "Sprint 7 review (groupe)" },
+  { date: "2027-02-09", heure: "14:00", cat: "groupe",  titre: "Build final avant la MS3 review (groupe)" },
   { date: "2027-02-11", heure: "",      cat: "groupe",  titre: "MS3 review : Vertical Slice (groupe)" },
   { date: "2027-02-18", heure: "23:59", cat: "memoire", titre: "F2.1 Présentation orale : sondages et interviews" },
   { date: "2027-02-25", heure: "",      cat: "groupe",  titre: "Sprint 8 review (groupe)" },
@@ -102,6 +104,7 @@ const ECHEANCES = [
   { date: "2027-03-12", heure: "09:30", cat: "cours",   titre: "Cours 6 : soutenance" },
   { date: "2027-03-25", heure: "",      cat: "groupe",  titre: "Sprint 10 review (groupe)" },
   { date: "2027-04-08", heure: "",      cat: "groupe",  titre: "Sprint 11 review (groupe)" },
+  { date: "2027-04-13", heure: "14:00", cat: "groupe",  titre: "Build final avant la MS4 review (groupe)" },
   { date: "2027-04-15", heure: "",      cat: "groupe",  titre: "MS4 review : MVP (groupe)" },
   { date: "2027-04-23", heure: "09:30", cat: "memoire", titre: "F2.2 Présentation orale : résultats, analyse et conclusion" },
   { date: "2027-04-29", heure: "",      cat: "groupe",  titre: "Sprint 12 review (groupe)" },
@@ -109,6 +112,7 @@ const ECHEANCES = [
   { date: "2027-05-13", heure: "",      cat: "groupe",  titre: "Sprint 13 review (groupe)" },
   { date: "2027-05-27", heure: "",      cat: "groupe",  titre: "Sprint 14 review (groupe)" },
   { date: "2027-06-10", heure: "",      cat: "groupe",  titre: "Sprint 15 review (groupe)" },
+  { date: "2027-06-15", heure: "14:00", cat: "groupe",  titre: "Build final avant la MS5 review (groupe)" },
   { date: "2027-06-17", heure: "",      cat: "groupe",  titre: "MS5 review : Gold (groupe, fin du projet)" },
 ];
 
@@ -214,10 +218,13 @@ const CONFLITS = [
   { date: "2026-12-17", titre: "Sprint 5 review (à distance, matin) et présentation du jeu (9h30-16h30)", detail: "Demande au groupe ou au prof si tu peux passer à un autre moment." },
 ];
 
+// Petit rappel, affiché sur les mardis.
+const INFO_MARDI = "Build du groupe à faire cet après-midi (pour le playtest de demain) : ce qui est important dans le sprint doit être fini avant.";
+
 // Petit rappel, affiché sur les jeudis.
 const INFO_JEUDI = "Permanence mémoires 10h-18h (rendez-vous avec le prof possible)";
 
 window.PLANNING = {
   CATEGORIES, SEMAINE_TYPE, VENDREDIS_SPE, REPOS, FERMETURES,
-  ECHEANCES, SEMAINES, JOURS, INFO_JEUDI, TACHES, RAPPELS, CONFLITS,
+  ECHEANCES, SEMAINES, JOURS, INFO_JEUDI, INFO_MARDI, TACHES, RAPPELS, CONFLITS,
 };
