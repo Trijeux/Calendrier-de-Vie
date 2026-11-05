@@ -12,9 +12,9 @@
   const ecart = (a, b) => Math.round((b - a) / 86400000);
   const dans = (s, p) => s >= p.du && s <= p.au;
   const majuscule = (t) => t.charAt(0).toUpperCase() + t.slice(1);
-  const dateLongue = (d) => majuscule(`${JOURS_NOMS[d.getDay()]} ${d.getDate()} ${MOIS_NOMS[d.getMonth()]}`);
+  const dateLongue = (d) => majuscule(`${JOURS_NOMS[d.getDay()]} ${d.getDate()} ${MOIS_NOMS[d.getMonth()]} ${d.getFullYear()}`);
   const MOIS_COURTS = ["janv.", "févr.", "mars", "avr.", "mai", "juin", "juil.", "août", "sept.", "oct.", "nov.", "déc."];
-  const dateCourte = (s) => { const d = parse(s); return `${JOURS_NOMS[d.getDay()].slice(0, 3)}. ${d.getDate()} ${MOIS_COURTS[d.getMonth()]}`; };
+  const dateCourte = (s) => { const d = parse(s); return `${JOURS_NOMS[d.getDay()].slice(0, 3)}. ${d.getDate()} ${MOIS_COURTS[d.getMonth()]} ${d.getFullYear()}`; };
   // "09:30" -> "9h30", "12:00" -> "12h"
   const heure = (h) => {
     if (!h || !/^\d\d:\d\d$/.test(h)) return h || "";
@@ -431,7 +431,7 @@
     suiv.setAttribute("aria-label", "Semaine suivante");
     suiv.onclick = () => { decalageSemaine++; rendre(); };
     const titre = el("div", "nav-titre");
-    titre.append(el("span", "nav-dates", `${debut.getDate()} ${MOIS_NOMS[debut.getMonth()]} – ${fin.getDate()} ${MOIS_NOMS[fin.getMonth()]}`));
+    titre.append(el("span", "nav-dates", `${debut.getDate()} ${MOIS_NOMS[debut.getMonth()]} – ${fin.getDate()} ${MOIS_NOMS[fin.getMonth()]} ${fin.getFullYear()}`));
     if (decalageSemaine !== 0) {
       const r = el("button", "lien", "revenir à cette semaine");
       r.onclick = () => { decalageSemaine = 0; rendre(); };
