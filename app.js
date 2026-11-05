@@ -516,6 +516,16 @@
   document.addEventListener("visibilitychange", () => { if (!document.hidden && !document.getElementById("formulaire").open) rendre(); });
 
   if ("serviceWorker" in navigator && location.protocol !== "file:") {
-    navigator.serviceWorker.register("sw.js");
+    // Recharge une fois quand une nouvelle version de l'appli prend la main.
+    const avaitUnControleur = !!navigator.serviceWorker.controller;
+    let recharge = false;
+    navigator.serviceWorker.addEventListener("controllerchange", () => {
+      if (!avaitUnControleur || recharge) return;
+      recharge = true;
+      location.reload();
+    });
+    navigator.serviceWorker.register("sw.js", { updateViaCache: "none" }).then((r) => {
+      document.addEventListener("visibilitychange", () => { if (!document.hidden) r.update(); });
+    });
   }
 })();
