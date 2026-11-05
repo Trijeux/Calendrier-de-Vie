@@ -76,6 +76,7 @@ const FERMETURES = [
 //  Échéances et rendez-vous. a_confirmer: true = date pas encore sûre.
 // ---------------------------------------------------------------------
 const ECHEANCES = [
+  { date: "2026-11-05", heure: "09:30", cat: "groupe",  titre: "Milestone Projet Commun (3e)" },
   { date: "2026-11-26", heure: "13:30", cat: "perso",   titre: "Présentation des projets perso (Solo Rhyme + jeu de cartes)", lieu: "Salle Leman" },
   { date: "2026-12-17", heure: "09:30", cat: "jeu",     titre: "F3 Présentation Advanced Specialised Project (le jeu)" },
   { date: "2026-12-18", heure: "09:30", cat: "memoire", titre: "Présentation notée de l'état de l'art", a_confirmer: true, note: "Le prof l'indique le 18 déc, le calendrier école le 8 janv." },
@@ -112,8 +113,12 @@ const SEMAINES = {
 //  Journées particulières (remplacent la semaine type ce jour-là).
 // ---------------------------------------------------------------------
 const JOURS = {
+  "2026-11-06": [
+    { debut: "09:30", fin: "12:40", cat: "cours", titre: "Cours Proba Stat", lieu: "Octagone" },
+    { debut: "13:30", fin: "16:30", cat: "cours", titre: "Suivi", lieu: "Octagone" },
+  ],
   "2026-11-05": [
-    { debut: "09:30", fin: "12:00", cat: "groupe", titre: "Journée avec le groupe" },
+    { debut: "09:30", fin: "12:00", cat: "groupe", titre: "Milestone Projet Commun (3e)" },
     { debut: "14:00", fin: "16:30", cat: "repos",  titre: "Pas de groupe cet après-midi : repos, ou un peu de sources pour l'état de l'art si tu en as envie" },
   ],
   "2026-11-26": [
