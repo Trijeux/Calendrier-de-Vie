@@ -133,10 +133,31 @@ const JOURS = {
   ],
 };
 
+// ---------------------------------------------------------------------
+//  Tâches concrètes à cocher. "pour" = date visée (avec de la marge),
+//  "echeance" = la vraie date limite. L'id ne doit jamais changer
+//  (c'est lui qui garde la coche sur le téléphone).
+// ---------------------------------------------------------------------
+const TACHES = [
+  { id: "mem-sources",     cat: "memoire", pour: "2026-11-13", echeance: "2026-12-18", titre: "État de l'art : liste des sources principales" },
+  { id: "jeu-demo-17",     cat: "jeu",     pour: "2026-11-23", echeance: "2026-12-17", titre: "Jeu : décider ce que tu montres le 17 décembre" },
+  { id: "perso-pres",      cat: "perso",   pour: "2026-11-25", echeance: "2026-11-26", titre: "Préparer la présentation perso (Solo Rhyme + jeu de cartes)" },
+  { id: "mem-inspi",       cat: "memoire", pour: "2026-11-27", echeance: "2026-12-18", titre: "État de l'art : inspirations et modèles d'analyse" },
+  { id: "mem-jet",         cat: "memoire", pour: "2026-12-04", echeance: "2026-12-18", titre: "État de l'art : premier jet complet" },
+  { id: "jeu-version",     cat: "jeu",     pour: "2026-12-09", echeance: "2026-12-17", titre: "Jeu : version présentable" },
+  { id: "mem-support",     cat: "memoire", pour: "2026-12-11", echeance: "2026-12-18", titre: "État de l'art : support de présentation" },
+  { id: "jeu-support",     cat: "jeu",     pour: "2026-12-15", echeance: "2026-12-17", titre: "Jeu : support de présentation" },
+  { id: "jeu-rendu-f3",    cat: "jeu",     pour: "2026-12-18", echeance: "2026-12-18", titre: "Jeu : déposer le rendu F3" },
+  { id: "prop-plan",       cat: "memoire", pour: "2027-01-06", echeance: "2027-01-15", titre: "Major Project Proposal : plan" },
+  { id: "grp-stab",        cat: "groupe",  pour: "2027-01-13", echeance: "2027-01-14", titre: "Groupe : stabilisation avant la milestone" },
+  { id: "prop-redac",      cat: "memoire", pour: "2027-01-12", echeance: "2027-01-15", titre: "Major Project Proposal : rédaction" },
+  { id: "prop-rendu",      cat: "memoire", pour: "2027-01-14", echeance: "2027-01-15", titre: "Major Project Proposal : relecture et rendu" },
+];
+
 // Petit rappel, affiché sur les jeudis.
 const INFO_JEUDI = "Permanence mémoires 10h-18h (rendez-vous avec le prof possible)";
 
 window.PLANNING = {
   CATEGORIES, SEMAINE_TYPE, VENDREDIS_SPE, REPOS, FERMETURES,
-  ECHEANCES, SEMAINES, JOURS, INFO_JEUDI,
+  ECHEANCES, SEMAINES, JOURS, INFO_JEUDI, TACHES,
 };

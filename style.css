@@ -165,7 +165,7 @@ button { font: inherit; color: inherit; }
   position: fixed;
   left: 0; right: 0; bottom: 0;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   background: color-mix(in srgb, var(--carte) 92%, transparent);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
@@ -182,3 +182,99 @@ button { font: inherit; color: inherit; }
 }
 .onglet-ico { font-size: 18px; line-height: 1; }
 .onglet[aria-current="page"] { color: var(--accent); font-weight: 700; }
+
+/* Cases à cocher */
+.echeance { align-items: center; }
+.case {
+  flex: none;
+  width: 28px; height: 28px;
+  border-radius: 8px;
+  border: 2px solid var(--cat, var(--bord));
+  background: transparent;
+  color: #fff;
+  font-weight: 800;
+  font-size: 16px;
+  line-height: 1;
+  cursor: pointer;
+}
+.case.cochee { background: var(--cat, var(--accent)); }
+.ech-gauche { flex: 1; }
+.tache-mini { margin: 4px 0 0; font-size: 14px; color: var(--texte); }
+.tache-mini.faite { color: var(--doux); text-decoration: line-through; }
+
+/* Jauge de charge */
+.jauge { margin-top: 6px; }
+.jauge-ligne { display: flex; align-items: center; gap: 10px; }
+.jauge-label { font-weight: 700; font-size: 14px; white-space: nowrap; }
+.jauge-barre { flex: 1; height: 8px; border-radius: 99px; background: color-mix(in srgb, var(--texte) 12%, transparent); overflow: hidden; }
+.jauge-plein { display: block; height: 100%; border-radius: 99px; background: var(--jauge); }
+.jauge-leger { --jauge: var(--c-perso); }
+.jauge-charge { --jauge: var(--c-groupe); }
+.jauge-trop { --jauge: var(--alerte); }
+.jauge-repos { --jauge: var(--c-repos); }
+.jauge-leger .jauge-label { color: var(--c-perso); }
+.jauge-charge .jauge-label { color: var(--c-groupe); }
+.jauge-trop .jauge-label { color: var(--alerte); }
+.jauge-conseil { margin: 8px 0 0; font-size: 14px; color: var(--alerte); }
+
+/* Imprévus et journal */
+.note-imprevu { color: var(--alerte); font-weight: 600; }
+.btn-imprevu {
+  width: 100%;
+  padding: 12px;
+  border-radius: 12px;
+  border: 1.5px dashed var(--alerte);
+  background: var(--alerte-fond);
+  color: var(--alerte);
+  font-weight: 700;
+  cursor: pointer;
+}
+.btn-principal, .btn-secondaire {
+  padding: 12px 16px;
+  border-radius: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  border: 0;
+}
+.btn-principal { background: var(--accent); color: #fff; width: 100%; }
+.btn-secondaire { background: transparent; border: 1px solid var(--bord); }
+.journal-item {
+  list-style: none;
+  background: var(--carte);
+  border: 1px solid var(--bord);
+  border-left: 4px solid var(--alerte);
+  border-radius: 12px;
+  padding: 10px 12px;
+  display: flex; flex-direction: column; gap: 4px;
+}
+.journal-item.info { border-left-color: var(--accent); }
+.journal-tete { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.journal-note { margin: 0; }
+.conseils { margin: 4px 0 0; padding-left: 18px; font-size: 14px; color: var(--doux); }
+.conseils li { margin: 3px 0; }
+.lien-doux { color: var(--doux); font-size: 13px; align-self: flex-start; }
+
+/* Formulaire */
+.dialogue {
+  width: min(520px, calc(100vw - 32px));
+  border: 1px solid var(--bord);
+  border-radius: 16px;
+  background: var(--carte);
+  color: var(--texte);
+  padding: 16px;
+}
+.dialogue::backdrop { background: rgba(0, 0, 0, .45); }
+.dialogue h2 { margin: 0 0 12px; font-size: 20px; }
+.dialogue label { display: flex; flex-direction: column; gap: 4px; margin-bottom: 12px; font-size: 14px; font-weight: 600; color: var(--doux); }
+.dialogue select, .dialogue input, .dialogue textarea {
+  font: inherit;
+  font-weight: 400;
+  color: var(--texte);
+  background: var(--fond);
+  border: 1px solid var(--bord);
+  border-radius: 10px;
+  padding: 10px;
+  width: 100%;
+}
+.dialogue-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.dialogue label[hidden] { display: none; }

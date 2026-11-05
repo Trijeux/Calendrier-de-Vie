@@ -20,8 +20,40 @@
   <nav class="onglets" aria-label="Vues">
     <button class="onglet" data-vue="aujourdhui"><span class="onglet-ico" aria-hidden="true">●</span>Aujourd'hui</button>
     <button class="onglet" data-vue="semaine"><span class="onglet-ico" aria-hidden="true">▦</span>Semaine</button>
-    <button class="onglet" data-vue="echeances"><span class="onglet-ico" aria-hidden="true">⚑</span>Échéances</button>
+    <button class="onglet" data-vue="afaire"><span class="onglet-ico" aria-hidden="true">✓</span>À faire</button>
+    <button class="onglet" data-vue="journal"><span class="onglet-ico" aria-hidden="true">✎</span>Journal</button>
   </nav>
+
+  <dialog id="formulaire" class="dialogue">
+    <form method="dialog">
+      <h2>Nouvelle note</h2>
+      <label>Quoi ?
+        <select name="type">
+          <option value="famille">Imprévu : famille</option>
+          <option value="sante">Imprévu : santé / fatigue</option>
+          <option value="autre">Imprévu : autre</option>
+          <option value="info">Nouvelle info pour le planning</option>
+        </select>
+      </label>
+      <label>Quel jour ?
+        <input type="date" name="date" required>
+      </label>
+      <label class="champ-duree">Temps perdu
+        <select name="duree">
+          <option value="heures">1 à 2 heures</option>
+          <option value="demi" selected>Une demi-journée</option>
+          <option value="journee">Toute la journée</option>
+        </select>
+      </label>
+      <label>Détails (facultatif)
+        <textarea name="note" rows="3" placeholder="Ex. : rendez-vous avec ma grand-mère, nouvelle date de rendu…"></textarea>
+      </label>
+      <div class="dialogue-actions">
+        <button type="button" class="btn-secondaire annuler">Annuler</button>
+        <button type="submit" class="btn-principal">Enregistrer</button>
+      </div>
+    </form>
+  </dialog>
   <script src="data.js"></script>
   <script src="app.js"></script>
 </body>
