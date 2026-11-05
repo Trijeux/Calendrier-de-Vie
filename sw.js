@@ -1,6 +1,6 @@
 // Hors ligne : on essaie toujours le réseau d'abord (pour avoir le planning
 // à jour), et on se rabat sur la copie enregistrée si on n'a pas internet.
-const CACHE = "calendrier-v10";
+const CACHE = "calendrier-v11";
 const FICHIERS = [
   "./", "index.html", "style.css", "app.js", "data.js", "manifest.webmanifest",
   "icons/icon.svg", "icons/icon-192.png", "icons/icon-512.png", "icons/apple-touch-icon.png",

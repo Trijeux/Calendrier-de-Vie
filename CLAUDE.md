@@ -27,7 +27,7 @@ sous forme de PWA publiée sur https://trijeux.github.io/Calendrier-de-Vie/ (Git
 - Rendez-vous avec le prof du mémoire : uniquement le jeudi (permanence 10h-18h, visio ou Octagone).
 
 ## Semaine type
-- Lun-mer : 9h30-12h et 14h-16h30. Mer après-midi : tampon imprévus + 2h de perso.
+- Lun-mer : 9h30-12h et 14h-16h30, avec stand-up du groupe à 9h30 (~15 min). Mer : playtest avec les artistes après le stand-up. Mer après-midi : tampon imprévus + 2h de perso.
 - Jeu : journée avec le groupe. Ven : cours à l'Octagone (Spé), sinon 2h de perso.
   Les semaines avec cours le vendredi, les 2h de perso passent au mardi après-midi.
 - Sam : courses le matin, ménage l'après-midi. Dim : libre (2h de perso en option).

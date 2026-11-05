@@ -21,15 +21,19 @@ const CATEGORIES = {
 // ---------------------------------------------------------------------
 const SEMAINE_TYPE = {
   1: [
-    { debut: "09:30", fin: "12:00", cat: "jeu",     titre: "Projet bachelor (jeu)" },
+    { debut: "09:30", fin: "09:45", cat: "groupe",  titre: "Stand-up meeting (groupe)" },
+    { debut: "09:45", fin: "12:00", cat: "jeu",     titre: "Projet bachelor (jeu)" },
     { debut: "14:00", fin: "16:30", cat: "jeu",     titre: "Projet bachelor (jeu)" },
   ],
   2: [
-    { debut: "09:30", fin: "12:00", cat: "memoire", titre: "Mémoire" },
+    { debut: "09:30", fin: "09:45", cat: "groupe",  titre: "Stand-up meeting (groupe)" },
+    { debut: "09:45", fin: "12:00", cat: "memoire", titre: "Mémoire" },
     { debut: "14:00", fin: "16:30", cat: "memoire", titre: "Mémoire" },
   ],
   3: [
-    { debut: "09:30", fin: "12:00", cat: "focus",   titre: "Priorité de la semaine" },
+    { debut: "09:30", fin: "09:45", cat: "groupe",  titre: "Stand-up meeting (groupe)" },
+    { debut: "09:45", fin: "",      cat: "groupe",  titre: "Playtest avec les artistes" },
+    { debut: "",      fin: "12:00", cat: "focus",   titre: "Priorité de la semaine" },
     { debut: "14:00", fin: "16:30", cat: "tampon",  titre: "Tampon imprévus, sinon projets perso (2h)" },
   ],
   4: [
