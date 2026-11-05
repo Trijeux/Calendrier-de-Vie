@@ -31,6 +31,7 @@ sous forme de PWA publiée sur https://trijeux.github.io/Calendrier-de-Vie/ (Git
 - Lun après-midi : Projet commun en solo (avant le build du mardi).
 - Jeu : Projet commun avec le groupe (discussions et décisions, pas que du travail solo). Ven : cours à l'Octagone (Spé), sinon 2h de perso.
   Les semaines avec cours le vendredi, les 2h de perso passent au mardi après-midi.
+- Horaires de l'école : 9h30-12h30 et 13h30-16h30 (cours, et jours de review de sprint ou de milestone car il y a des profs). Le reste garde 9h30-12h / 14h-16h30.
 - Sam : courses le matin, ménage l'après-midi. Dim : libre (2h de perso en option).
 - Imprévus fréquents (famille, grand-mère).
 

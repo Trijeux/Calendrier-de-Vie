@@ -131,7 +131,7 @@
     if (P.JOURS[s]) {
       blocs = P.JOURS[s].map((b) => ({ ...b }));
     } else if (speSet.has(s)) {
-      blocs = [{ debut: "journée", cat: "cours", titre: speSet.get(s), lieu: "Octagone" }];
+      blocs = (P.HORAIRES_ECOLE || [["09:30", "16:30"]]).map(([debut, fin]) => ({ debut, fin, cat: "cours", titre: speSet.get(s), lieu: "Octagone" }));
     } else {
       blocs = (P.SEMAINE_TYPE[d.getDay()] || []).map((b) => ({ ...b }));
       // Mardi d'une semaine avec cours de Spé le vendredi : l'après-midi passe en perso.
@@ -140,6 +140,16 @@
           ? { debut: "14:00", fin: "16:00", cat: "perso", titre: "Projets perso (2h, vendredi pris par les cours)" }
           : b));
       }
+    }
+
+    // Jour de review du groupe (sprint ou milestone) : horaires de l'école, avec les profs.
+    const review = !P.JOURS[s] && ECHEANCES.find((e) => e.date === s && e.cat === "groupe" && /review/i.test(e.titre));
+    if (review && !speSet.has(s)) {
+      const [[a1, f1], [a2, f2]] = P.HORAIRES_ECOLE || [["09:30", "12:30"], ["13:30", "16:30"]];
+      blocs = [
+        { debut: a1, fin: f1, cat: "groupe", titre: `${review.titre.replace(" (groupe)", "").replace("(groupe, ", "(")} · avec les profs` },
+        { debut: a2, fin: f2, cat: "groupe", titre: "Projet commun (avec les profs)" },
+      ];
     }
 
     const sem = semaineDe(d);

@@ -138,11 +138,11 @@ const SEMAINES = {
 // ---------------------------------------------------------------------
 const JOURS = {
   "2026-11-06": [
-    { debut: "09:30", fin: "12:40", cat: "cours", titre: "Cours Proba Stat", lieu: "Octagone" },
+    { debut: "09:30", fin: "12:30", cat: "cours", titre: "Cours Proba Stat", lieu: "Octagone" },
     { debut: "13:30", fin: "16:30", cat: "cours", titre: "Suivi", lieu: "Octagone" },
   ],
   "2026-11-05": [
-    { debut: "09:30", fin: "12:00", cat: "groupe", titre: "MS1 review (groupe)" },
+    { debut: "09:30", fin: "12:30", cat: "groupe", titre: "MS1 review (groupe)" },
     { debut: "14:00", fin: "16:30", cat: "repos",  titre: "Pas de groupe cet après-midi : repos, ou un peu de sources pour l'état de l'art si tu en as envie" },
   ],
   "2026-11-26": [
@@ -150,16 +150,16 @@ const JOURS = {
     { debut: "13:30", fin: "",      cat: "perso",  titre: "Présentation des projets perso", lieu: "Salle Leman" },
   ],
   "2026-11-20": [
-    { debut: "matin", cat: "groupe", titre: "Sprint 3 review (à distance)" },
-    { debut: "journée", cat: "cours", titre: "Cours de Spé 3/9", lieu: "Octagone" },
+    { debut: "09:30", fin: "12:30", cat: "cours",  titre: "Cours de Spé 3/9 + Sprint 3 review à distance (conflit)", lieu: "Octagone" },
+    { debut: "13:30", fin: "16:30", cat: "cours",  titre: "Cours de Spé 3/9", lieu: "Octagone" },
   ],
   "2026-12-17": [
     { debut: "matin", cat: "groupe", titre: "Sprint 5 review (à distance) : à vérifier, même jour que ta présentation" },
     { debut: "09:30", fin: "16:30", cat: "jeu", titre: "Présentation du jeu (Advanced Specialised Project)" },
   ],
   "2026-12-23": [
-    { debut: "09:30", fin: "12:00", cat: "groupe", titre: "MS2 review (présentiel)" },
-    { debut: "14:00", fin: "16:30", cat: "repos",  titre: "Après-midi libre : les vacances commencent" },
+    { debut: "09:30", fin: "12:30", cat: "groupe", titre: "MS2 review (présentiel, avec les profs)" },
+    { debut: "13:30", fin: "16:30", cat: "groupe", titre: "Projet commun (avec les profs)" },
   ],
   "2027-01-07": [
     { debut: "09:30", fin: "12:00", cat: "groupe", titre: "Groupe : sprint vacances (léger)" },
@@ -171,8 +171,8 @@ const JOURS = {
   ],
   "2027-01-14": [
     { debut: "09:30", fin: "11:10", cat: "groupe", titre: "Derniers réglages" },
-    { debut: "11:10", fin: "",      cat: "groupe", titre: "Sprint 6 review (groupe)" },
-    { debut: "14:00", fin: "16:30", cat: "repos",  titre: "Après-midi léger" },
+    { debut: "11:10", fin: "12:30", cat: "groupe", titre: "Sprint 6 review (avec les profs)" },
+    { debut: "13:30", fin: "16:30", cat: "groupe", titre: "Projet commun (avec les profs)" },
   ],
   "2027-01-15": [
     { debut: "09:30", fin: "",      cat: "memoire", titre: "Rendu du Major Project Proposal" },
@@ -218,6 +218,9 @@ const CONFLITS = [
   { date: "2026-12-17", titre: "Sprint 5 review (à distance, matin) et présentation du jeu (9h30-16h30)", detail: "Demande au groupe ou au prof si tu peux passer à un autre moment." },
 ];
 
+// Horaires des cours à l'école (cours, reviews de sprint et de milestone).
+const HORAIRES_ECOLE = [["09:30", "12:30"], ["13:30", "16:30"]];
+
 // Petit rappel, affiché sur les mardis.
 const INFO_MARDI = "Build du groupe à faire cet après-midi (pour le playtest de demain) : ce qui est important dans le sprint doit être fini avant.";
 
@@ -226,5 +229,5 @@ const INFO_JEUDI = "Permanence mémoires 10h-18h (rendez-vous avec le prof possi
 
 window.PLANNING = {
   CATEGORIES, SEMAINE_TYPE, VENDREDIS_SPE, REPOS, FERMETURES,
-  ECHEANCES, SEMAINES, JOURS, INFO_JEUDI, INFO_MARDI, TACHES, RAPPELS, CONFLITS,
+  ECHEANCES, SEMAINES, JOURS, INFO_JEUDI, INFO_MARDI, HORAIRES_ECOLE, TACHES, RAPPELS, CONFLITS,
 };
