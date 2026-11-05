@@ -112,6 +112,10 @@ const SEMAINES = {
 //  Journées particulières (remplacent la semaine type ce jour-là).
 // ---------------------------------------------------------------------
 const JOURS = {
+  "2026-11-05": [
+    { debut: "09:30", fin: "12:00", cat: "groupe", titre: "Journée avec le groupe" },
+    { debut: "14:00", fin: "16:30", cat: "repos",  titre: "Pas de groupe cet après-midi : repos, ou un peu de sources pour l'état de l'art si tu en as envie" },
+  ],
   "2026-11-26": [
     { debut: "09:30", fin: "12:00", cat: "groupe", titre: "Journée avec le groupe" },
     { debut: "13:30", fin: "",      cat: "perso",  titre: "Présentation des projets perso", lieu: "Salle Leman" },
