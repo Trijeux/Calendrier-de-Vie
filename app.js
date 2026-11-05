@@ -132,6 +132,9 @@
       blocs = P.JOURS[s].map((b) => ({ ...b }));
     } else if (speSet.has(s)) {
       blocs = (P.HORAIRES_ECOLE || [["09:30", "16:30"]]).map(([debut, fin]) => ({ debut, fin, cat: "cours", titre: speSet.get(s), lieu: "Octagone" }));
+    } else if (P.FIN_ANNEE && s >= P.FIN_ANNEE) {
+      // Après la fin de l'année scolaire : rien de prévu (on peut toujours ajouter des JOURS).
+      return { blocs: [], notes: [], repos: false, vide: true };
     } else {
       blocs = (P.SEMAINE_TYPE[d.getDay()] || []).map((b) => ({ ...b }));
       // Mardi d'une semaine avec cours de Spé le vendredi : l'après-midi passe en perso.
@@ -334,6 +337,7 @@
     const j = journee(ref);
     const carte = el("div", "carte");
     const ul = el("ul", "blocs");
+    if (!j.blocs.length) ul.append(el("li", "note", "Rien de prévu."));
     j.blocs.forEach((b) => {
       const a = minutes(b.debut), z = minutes(b.fin);
       ul.append(blocEl(b, a != null && z != null && m >= a && m < z));
@@ -455,6 +459,7 @@
       carte.append(t);
       const ul = el("ul", "blocs compact");
       j.blocs.forEach((b) => ul.append(blocEl(b, false)));
+      if (!j.blocs.length) ul.append(el("li", "note", "Rien de prévu."));
       carte.append(ul);
       // Les journées particulières affichent déjà leurs échéances dans les blocs.
       if (!P.JOURS[s]) echeancesDu(s).forEach((e) => {

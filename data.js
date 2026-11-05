@@ -228,6 +228,10 @@ const CONFLITS = [
   { date: "2026-12-17", titre: "Sprint 5 review (à distance, matin) et présentation du jeu (9h30-16h30)", detail: "Demande au groupe ou au prof si tu peux passer à un autre moment." },
 ];
 
+// Fin de l'année scolaire : à partir de cette date, la semaine type ne s'affiche plus
+// (jours vides). Pour une nouvelle année, change cette date et les données.
+const FIN_ANNEE = "2027-07-26";
+
 // Horaires des cours à l'école (cours, reviews de sprint et de milestone).
 const HORAIRES_ECOLE = [["09:30", "12:30"], ["13:30", "16:30"]];
 
@@ -239,5 +243,5 @@ const INFO_JEUDI = "Permanence mémoires 10h-18h (rendez-vous avec le prof possi
 
 window.PLANNING = {
   CATEGORIES, SEMAINE_TYPE, VENDREDIS_SPE, REPOS, FERMETURES,
-  ECHEANCES, SEMAINES, JOURS, INFO_JEUDI, INFO_MARDI, HORAIRES_ECOLE, TACHES, RAPPELS, CONFLITS,
+  ECHEANCES, SEMAINES, JOURS, INFO_JEUDI, INFO_MARDI, HORAIRES_ECOLE, FIN_ANNEE, TACHES, RAPPELS, CONFLITS,
 };
