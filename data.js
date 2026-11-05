@@ -200,10 +200,20 @@ const RAPPELS = [
   { titre: "Confirmer la date de l'état de l'art", note: "Vendredi 18 décembre ou vendredi 8 janvier ? À vérifier avec le prof." },
 ];
 
+// ---------------------------------------------------------------------
+//  Conflits à régler : deux choses prévues en même temps. Affichés sur
+//  l'écran Aujourd'hui (section Conflits) et sur le jour concerné.
+//  On les retire d'ici une fois réglés.
+// ---------------------------------------------------------------------
+const CONFLITS = [
+  { date: "2026-11-20", titre: "Sprint 3 review (à distance, matin) et cours de Spé", detail: "Vérifie l'heure du cours ; sinon, préviens le groupe." },
+  { date: "2026-12-17", titre: "Sprint 5 review (à distance, matin) et présentation du jeu (9h30-16h30)", detail: "Demande au groupe ou au prof si tu peux passer à un autre moment." },
+];
+
 // Petit rappel, affiché sur les jeudis.
 const INFO_JEUDI = "Permanence mémoires 10h-18h (rendez-vous avec le prof possible)";
 
 window.PLANNING = {
   CATEGORIES, SEMAINE_TYPE, VENDREDIS_SPE, REPOS, FERMETURES,
-  ECHEANCES, SEMAINES, JOURS, INFO_JEUDI, TACHES, RAPPELS,
+  ECHEANCES, SEMAINES, JOURS, INFO_JEUDI, TACHES, RAPPELS, CONFLITS,
 };

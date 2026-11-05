@@ -11,6 +11,7 @@ sous forme de PWA publiée sur https://trijeux.github.io/Calendrier-de-Vie/ (Git
 - Les dates et le contenu du planning sont tous dans `data.js`. Le reste (`app.js`, `style.css`) ne change que pour une nouvelle fonctionnalité.
 - Quand tu changes des fichiers mis en cache, augmente la version `CACHE` dans `sw.js`.
 - Les choses sans date (en attente, à ne pas oublier) vont dans `RAPPELS` de `data.js` : elles s'affichent tous les jours sur l'écran Aujourd'hui. Ajoute-en ou retire-en quand l'utilisateur le demande ou quand l'info arrive.
+- Deux choses prévues en même temps vont dans `CONFLITS` de `data.js` (section Conflits de l'écran Aujourd'hui). Signale chaque nouveau conflit à l'utilisateur et retire-le une fois réglé.
 - `coches.json` est écrit par l'appli (coches de l'utilisateur, via son jeton GitHub) : ne le modifie pas à la main, et fais toujours `git pull` avant de pousser. Le journal des imprévus reste sur le téléphone : l'utilisateur l'envoie dans la conversation.
 - Ne change jamais l'`id` d'une tâche existante dans `TACHES` (sinon la coche est perdue sur le téléphone).
 

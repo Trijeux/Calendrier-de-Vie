@@ -333,6 +333,23 @@
     root.append(carte);
     root.append(boutonImprevu(iso(ref), "＋ Imprévu aujourd'hui ?"));
 
+    const conflits = (P.CONFLITS || []).filter((x) => x.date >= iso(ref)).sort((a, b) => a.date.localeCompare(b.date));
+    if (conflits.length) {
+      const k = el("div", "carte conflits");
+      k.append(el("p", "conseil-sur", `Conflits à régler (${conflits.length})`));
+      const ul = el("ul", "rappels-liste");
+      conflits.forEach((x) => {
+        const n = ecart(ref, parse(x.date));
+        const li = el("li");
+        li.append(el("span", "ech-date", `${dateLongue(parse(x.date))} · ${n === 0 ? "aujourd'hui" : n === 1 ? "demain" : "dans " + n + " j"}`));
+        li.append(el("span", "ech-titre", x.titre));
+        if (x.detail) li.append(el("span", "ech-note", x.detail));
+        ul.append(li);
+      });
+      k.append(ul);
+      root.append(k);
+    }
+
     const rappels = P.RAPPELS || [];
     if (rappels.length) {
       const r = el("div", "carte rappels");
@@ -435,6 +452,7 @@
       TACHES.filter((x) => x.pour === s).forEach((x) => {
         carte.append(el("p", `tache-mini cat-${x.cat}${fait(x.id) ? " faite" : ""}`, `${fait(x.id) ? "✓" : "○"} ${x.titre}`));
       });
+      (P.CONFLITS || []).filter((x) => x.date === s).forEach((x) => carte.append(el("p", "note note-conflit", `⚠ Conflit : ${x.titre}`)));
       journalDu(s).forEach((x) => carte.append(el("p", "note note-imprevu", `${estImprevu(x) ? "Imprévu" : "Info"}${x.note ? " : " + x.note : ""}`)));
       j.notes.forEach((n) => carte.append(el("p", "note", n)));
       root.append(carte);
