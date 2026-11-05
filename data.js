@@ -23,7 +23,7 @@ const SEMAINE_TYPE = {
   1: [
     { debut: "09:30", fin: "09:45", cat: "groupe",  titre: "Stand-up meeting (groupe)" },
     { debut: "09:45", fin: "12:00", cat: "jeu",     titre: "Projet bachelor (jeu)" },
-    { debut: "14:00", fin: "16:30", cat: "jeu",     titre: "Projet bachelor (jeu)" },
+    { debut: "14:00", fin: "16:30", cat: "groupe",  titre: "Projet commun : travail solo (avant le build de mardi)" },
   ],
   2: [
     { debut: "09:30", fin: "09:45", cat: "groupe",  titre: "Stand-up meeting (groupe)" },
@@ -37,8 +37,8 @@ const SEMAINE_TYPE = {
     { debut: "14:00", fin: "16:30", cat: "tampon",  titre: "Tampon imprévus, sinon projets perso (2h)" },
   ],
   4: [
-    { debut: "09:30", fin: "12:00", cat: "groupe",  titre: "Projet commun (avec le groupe)" },
-    { debut: "14:00", fin: "16:30", cat: "groupe",  titre: "Projet commun (avec le groupe)" },
+    { debut: "09:30", fin: "12:00", cat: "groupe",  titre: "Projet commun : discussions et décisions avec le groupe" },
+    { debut: "14:00", fin: "16:30", cat: "groupe",  titre: "Projet commun : discussions et décisions avec le groupe" },
   ],
   5: [
     { debut: "09:30", fin: "11:30", cat: "perso",   titre: "Projets perso (2h)" },
@@ -146,7 +146,7 @@ const JOURS = {
     { debut: "14:00", fin: "16:30", cat: "repos",  titre: "Pas de groupe cet après-midi : repos, ou un peu de sources pour l'état de l'art si tu en as envie" },
   ],
   "2026-11-26": [
-    { debut: "09:30", fin: "12:00", cat: "groupe", titre: "Projet commun (avec le groupe)" },
+    { debut: "09:30", fin: "12:00", cat: "groupe", titre: "Projet commun : discussions et décisions avec le groupe" },
     { debut: "13:30", fin: "",      cat: "perso",  titre: "Présentation des projets perso", lieu: "Salle Leman" },
   ],
   "2026-11-20": [

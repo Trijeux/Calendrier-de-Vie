@@ -28,7 +28,8 @@ sous forme de PWA publiée sur https://trijeux.github.io/Calendrier-de-Vie/ (Git
 
 ## Semaine type
 - Lun-mer : 9h30-12h et 14h-16h30, avec stand-up du groupe à 9h30 (~15 min). Mer : playtest avec les artistes après le stand-up. Mar après-midi : build du groupe (l'important du sprint doit être fini avant, surtout avant une MS review). Mer après-midi : tampon imprévus + 2h de perso.
-- Jeu : journée avec le groupe. Ven : cours à l'Octagone (Spé), sinon 2h de perso.
+- Lun après-midi : Projet commun en solo (avant le build du mardi).
+- Jeu : Projet commun avec le groupe (discussions et décisions, pas que du travail solo). Ven : cours à l'Octagone (Spé), sinon 2h de perso.
   Les semaines avec cours le vendredi, les 2h de perso passent au mardi après-midi.
 - Sam : courses le matin, ménage l'après-midi. Dim : libre (2h de perso en option).
 - Imprévus fréquents (famille, grand-mère).
