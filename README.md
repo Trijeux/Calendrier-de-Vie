@@ -10,7 +10,7 @@ installable sur le téléphone : https://trijeux.github.io/Calendrier-de-Vie/
 
 L'écran Aujourd'hui montre aussi **le plus urgent** (tâches à rattraper en premier) et la **jauge de charge** de la semaine (légère, chargée, trop chargée avec conseils pour alléger).
 
-Les coches et le journal sont enregistrés sur le téléphone : vider les données du navigateur les efface.
+Les coches peuvent être sauvegardées automatiquement dans `coches.json` (onglet Journal > Sauvegarde GitHub, avec un jeton). Le journal reste sur le téléphone : vider les données du navigateur l'efface.
 
 Elle marche hors ligne et se met à jour toute seule quand le planning change.
 

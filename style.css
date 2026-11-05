@@ -284,3 +284,10 @@ button { font: inherit; color: inherit; }
 .rappels .conseil-sur { color: var(--c-groupe); }
 .rappels-liste { list-style: none; margin: 6px 0 0; padding: 0; display: grid; gap: 8px; }
 .rappels-liste li { display: flex; flex-direction: column; gap: 2px; }
+
+/* Réglages de sauvegarde */
+.reglages { margin-top: 24px; }
+.reglages-titre { font-weight: 700; cursor: pointer; }
+.reglages-form { display: grid; gap: 10px; margin-top: 8px; }
+.reglages-form label { display: flex; flex-direction: column; gap: 4px; font-size: 14px; font-weight: 600; color: var(--doux); }
+.reglages-form input { font: inherit; font-weight: 400; color: var(--texte); background: var(--fond); border: 1px solid var(--bord); border-radius: 10px; padding: 10px; width: 100%; }

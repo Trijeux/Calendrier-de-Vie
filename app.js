@@ -33,9 +33,78 @@
   const CLE = "cdv-etat-v1";
   let etat = { faits: {}, journal: [] };
   try { etat = { ...etat, ...JSON.parse(localStorage.getItem(CLE) || "{}") }; } catch (e) { /* stockage indisponible */ }
-  const sauver = () => { try { localStorage.setItem(CLE, JSON.stringify(etat)); } catch (e) { /* rien */ } };
+  const ecrireLocal = () => { try { localStorage.setItem(CLE, JSON.stringify(etat)); } catch (e) { /* rien */ } };
+  const sauver = () => { ecrireLocal(); };
+  const sauverCoches = () => { etat.maj = Date.now(); ecrireLocal(); planifierSync(); };
+
+  // ---------- Sauvegarde sur GitHub ----------
+  // Le jeton reste sur le téléphone. Seules les coches sont enregistrées
+  // (coches.json dans le repo de l'appli), quelques secondes après le dernier
+  // changement. Le journal des imprévus reste uniquement sur le téléphone.
+  const CLE_SYNC = "cdv-sync-v1";
+  let sync = { repo: "Trijeux/Calendrier-de-Vie", jeton: "" };
+  try { sync = { ...sync, ...JSON.parse(localStorage.getItem(CLE_SYNC) || "{}") }; } catch (e) { /* rien */ }
+  let statutSync = "";
+  let minuterie = null;
+  let shaDistant = null;
+  const syncActive = () => !!(sync.jeton && sync.repo);
+  const b64 = (t) => { const o = new TextEncoder().encode(t); let s2 = ""; o.forEach((c) => { s2 += String.fromCharCode(c); }); return btoa(s2); };
+  const deb64 = (b) => new TextDecoder().decode(Uint8Array.from(atob(b.replace(/\n/g, "")), (c) => c.charCodeAt(0)));
+  const api = (chemin, opts = {}) => fetch(`https://api.github.com/repos/${sync.repo}/contents/${chemin}`, {
+    ...opts,
+    cache: "no-store",
+    headers: { Authorization: `Bearer ${sync.jeton}`, Accept: "application/vnd.github+json", ...(opts.headers || {}) },
+  });
+  const majStatut = (t) => { statutSync = t; const e = document.getElementById("statut-sync"); if (e) e.textContent = t; };
+
+  async function lireDistant() {
+    const r = await api("coches.json");
+    if (r.status === 404) { shaDistant = null; return null; }
+    if (!r.ok) throw new Error(`GitHub a répondu ${r.status}`);
+    const j = await r.json();
+    shaDistant = j.sha;
+    return JSON.parse(deb64(j.content));
+  }
+
+  async function envoyerDistant() {
+    const corps = { message: `Mise à jour depuis l'appli (${new Date().toLocaleString("fr-CH")})`, content: b64(JSON.stringify({ maj: etat.maj, faits: etat.faits }, null, 2)) };
+    if (shaDistant) corps.sha = shaDistant;
+    let r = await api("coches.json", { method: "PUT", body: JSON.stringify(corps) });
+    if (r.status === 409 || r.status === 422) { // version changée entre-temps : on relit et on réessaie
+      await lireDistant();
+      if (shaDistant) corps.sha = shaDistant;
+      r = await api("coches.json", { method: "PUT", body: JSON.stringify(corps) });
+    }
+    if (!r.ok) throw new Error(`GitHub a répondu ${r.status}`);
+    shaDistant = (await r.json()).content.sha;
+  }
+
+  async function synchroniser() {
+    if (!syncActive()) return;
+    majStatut("Synchronisation…");
+    try {
+      const distant = await lireDistant();
+      if (distant && (distant.maj || 0) > (etat.maj || 0)) {
+        etat = { ...etat, faits: distant.faits || {}, maj: distant.maj };
+        ecrireLocal();
+        rendre();
+      } else if (!distant || (etat.maj || 0) > (distant.maj || 0)) {
+        await envoyerDistant();
+      }
+      majStatut(`Sauvegardé sur GitHub à ${new Date().toLocaleTimeString("fr-CH", { hour: "2-digit", minute: "2-digit" })}`);
+    } catch (e) {
+      majStatut(`Pas sauvegardé : ${e.message}. Nouvel essai au prochain changement.`);
+    }
+  }
+
+  function planifierSync() {
+    if (!syncActive()) return;
+    majStatut("Changement à sauvegarder…");
+    clearTimeout(minuterie);
+    minuterie = setTimeout(synchroniser, 4000);
+  }
   const fait = (id) => !!etat.faits[id];
-  const basculer = (id) => { if (etat.faits[id]) delete etat.faits[id]; else etat.faits[id] = iso(aujourdhui()); sauver(); rendre(); };
+  const basculer = (id) => { if (etat.faits[id]) delete etat.faits[id]; else etat.faits[id] = iso(aujourdhui()); sauverCoches(); rendre(); };
 
   const TYPES = {
     famille: "Imprévu : famille",
@@ -464,7 +533,42 @@
       liste.forEach((j) => ul.append(journalEl(j)));
       root.append(ul);
     } else root.append(el("p", "note", "Aucune note pour l'instant."));
+    root.append(reglagesSync());
     return root;
+  }
+
+  function reglagesSync() {
+    const box = el("details", "carte reglages");
+    if (!syncActive()) box.open = false;
+    box.append(el("summary", "reglages-titre", syncActive() ? "Sauvegarde GitHub : activée" : "Sauvegarde GitHub : désactivée"));
+    box.append(el("p", "note", "Tes coches sont enregistrées automatiquement dans coches.json du repo ci-dessous (le journal reste sur ce téléphone). Le jeton reste sur ce téléphone."));
+    const f = el("form", "reglages-form");
+    const lRepo = el("label", null, "Repo");
+    const iRepo = el("input"); iRepo.value = sync.repo; iRepo.placeholder = "Trijeux/Calendrier-de-Vie"; iRepo.autocapitalize = "off";
+    lRepo.append(iRepo);
+    const lJeton = el("label", null, "Jeton GitHub");
+    const iJeton = el("input"); iJeton.type = "password"; iJeton.value = sync.jeton; iJeton.placeholder = "github_pat_…"; iJeton.autocomplete = "off";
+    lJeton.append(iJeton);
+    const ok = el("button", "btn-principal", "Enregistrer et synchroniser");
+    ok.type = "submit";
+    f.append(lRepo, lJeton, ok);
+    f.onsubmit = (ev) => {
+      ev.preventDefault();
+      sync = { repo: iRepo.value.trim(), jeton: iJeton.value.trim() };
+      try { localStorage.setItem(CLE_SYNC, JSON.stringify(sync)); } catch (e) { /* rien */ }
+      shaDistant = null;
+      synchroniser().then(rendre);
+    };
+    box.append(f);
+    const st = el("p", "note", statutSync || (syncActive() ? "" : "Pas encore configurée."));
+    st.id = "statut-sync";
+    box.append(st);
+    if (syncActive()) {
+      const off = el("button", "lien lien-doux", "désactiver la sauvegarde sur ce téléphone");
+      off.onclick = () => { sync = { ...sync, jeton: "" }; try { localStorage.setItem(CLE_SYNC, JSON.stringify(sync)); } catch (e) { /* rien */ } statutSync = ""; rendre(); };
+      box.append(off);
+    }
+    return box;
   }
 
   // ---------- Formulaire ----------
@@ -526,9 +630,14 @@
 
   initFormulaire();
   rendre();
+  synchroniser();
   // Rafraîchit chaque minute (bloc "maintenant", changement de jour à minuit).
   setInterval(() => { if (vue === "aujourdhui" && !document.getElementById("formulaire").open) rendre(); }, 60000);
-  document.addEventListener("visibilitychange", () => { if (!document.hidden && !document.getElementById("formulaire").open) rendre(); });
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) { if (minuterie) { clearTimeout(minuterie); synchroniser(); } return; }
+    if (!document.getElementById("formulaire").open) rendre();
+    synchroniser();
+  });
 
   if ("serviceWorker" in navigator && location.protocol !== "file:") {
     // Recharge une fois quand une nouvelle version de l'appli prend la main.
