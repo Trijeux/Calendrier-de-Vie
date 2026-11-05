@@ -32,7 +32,10 @@ sous forme de PWA publiée sur https://trijeux.github.io/Calendrier-de-Vie/ (Git
 - Sam : courses le matin, ménage l'après-midi. Dim : libre (2h de perso en option).
 - Imprévus fréquents (famille, grand-mère).
 
+## Projet de groupe (planning reçu le 05/11/2026)
+- Reviews le jeudi (sauf exceptions) : MS1 05/11, SP3 ven 20/11 (distance), SP4 03/12 (distance), SP5 17/12 (distance), MS2 mer 23/12, SP6 14/01, SP7 04/02, MS3 11/02, SP8 25/02, SP9 11/03, SP10 25/03, SP11 08/04, MS4 15/04, SP12 29/04, SP13 13/05, SP14 27/05, SP15 10/06, MS5 17/06.
+- Semaine STAB avant chaque MS. SP6 (24/12 au 14/01) = sprint vacances, léger.
+
 ## Infos en attente (au 05/11/2026)
-- Nouveau planning du groupe (l'ancien n'est plus valable ; milestone confirmée le jeu 14 janv 2027 à 11h10).
 - Date de la présentation de l'état de l'art : ven 18 déc 2026 (agenda du prof) ou ven 8 janv 2027 (calendrier école, mais école fermée).
 - Indisponible du 24 déc 2026 au 2 janv 2027. École fermée jusqu'au 8 janv.
