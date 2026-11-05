@@ -10,6 +10,7 @@ sous forme de PWA publiée sur https://trijeux.github.io/Calendrier-de-Vie/ (Git
 - Avant de pousser, vérifie l'appli dans un navigateur à la taille d'un téléphone (aucune erreur console).
 - Les dates et le contenu du planning sont tous dans `data.js`. Le reste (`app.js`, `style.css`) ne change que pour une nouvelle fonctionnalité.
 - Quand tu changes des fichiers mis en cache, augmente la version `CACHE` dans `sw.js`.
+- Les choses sans date (en attente, à ne pas oublier) vont dans `RAPPELS` de `data.js` : elles s'affichent tous les jours sur l'écran Aujourd'hui. Ajoute-en ou retire-en quand l'utilisateur le demande ou quand l'info arrive.
 - Ne change jamais l'`id` d'une tâche existante dans `TACHES` (sinon la coche est perdue sur le téléphone).
 
 ## Priorités de l'utilisateur

@@ -163,10 +163,19 @@ const TACHES = [
   { id: "prop-rendu",      cat: "memoire", pour: "2027-01-14", echeance: "2027-01-15", titre: "Major Project Proposal : relecture et rendu" },
 ];
 
+// ---------------------------------------------------------------------
+//  Rappels sans date : affichés tous les jours sur l'écran Aujourd'hui,
+//  jusqu'à ce qu'on les retire d'ici.
+// ---------------------------------------------------------------------
+const RAPPELS = [
+  { titre: "Envoyer à Claude le nouveau planning du groupe", note: "Dès que tu l'as : les dates de sprints et de milestones." },
+  { titre: "Confirmer la date de l'état de l'art", note: "Vendredi 18 décembre ou vendredi 8 janvier ? À vérifier avec le prof." },
+];
+
 // Petit rappel, affiché sur les jeudis.
 const INFO_JEUDI = "Permanence mémoires 10h-18h (rendez-vous avec le prof possible)";
 
 window.PLANNING = {
   CATEGORIES, SEMAINE_TYPE, VENDREDIS_SPE, REPOS, FERMETURES,
-  ECHEANCES, SEMAINES, JOURS, INFO_JEUDI, TACHES,
+  ECHEANCES, SEMAINES, JOURS, INFO_JEUDI, TACHES, RAPPELS,
 };

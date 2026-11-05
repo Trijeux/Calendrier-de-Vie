@@ -278,3 +278,9 @@ button { font: inherit; color: inherit; }
 }
 .dialogue-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 .dialogue label[hidden] { display: none; }
+
+/* Rappels sans date */
+.rappels { border-left: 4px solid var(--c-groupe); }
+.rappels .conseil-sur { color: var(--c-groupe); }
+.rappels-liste { list-style: none; margin: 6px 0 0; padding: 0; display: grid; gap: 8px; }
+.rappels-liste li { display: flex; flex-direction: column; gap: 2px; }

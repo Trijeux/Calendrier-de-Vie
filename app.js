@@ -264,6 +264,21 @@
     root.append(carte);
     root.append(boutonImprevu(iso(ref), "＋ Imprévu aujourd'hui ?"));
 
+    const rappels = P.RAPPELS || [];
+    if (rappels.length) {
+      const r = el("div", "carte rappels");
+      r.append(el("p", "conseil-sur", "En attente, à ne pas oublier"));
+      const ul = el("ul", "rappels-liste");
+      rappels.forEach((x) => {
+        const li = el("li");
+        li.append(el("span", "ech-titre", x.titre));
+        if (x.note) li.append(el("span", "ech-note", x.note));
+        ul.append(li);
+      });
+      r.append(ul);
+      root.append(r);
+    }
+
     const duJour = echeancesDu(iso(ref));
     if (duJour.length) {
       root.append(el("h2", "sous-titre", "À rendre aujourd'hui"));
