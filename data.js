@@ -143,8 +143,8 @@ const JOURS = {
   "2026-11-09": [
     { debut: "09:30", fin: "10:00", cat: "jeu",    titre: "Projet bachelor (jeu)" },
     { debut: "10:00", fin: "10:15", cat: "groupe", titre: "Stand-up meeting (max 10h20)" },
-    { debut: "10:15", fin: "10:25", cat: "groupe", titre: "Réunion avec les leads du Projet commun" },
-    { debut: "10:25", fin: "12:00", cat: "jeu",    titre: "Projet bachelor (jeu)" },
+    { debut: "10:15", fin: "10:30", cat: "groupe", titre: "Réunion avec les leads du Projet commun (~10 min)" },
+    { debut: "10:30", fin: "12:00", cat: "jeu",    titre: "Projet bachelor (jeu)" },
     { debut: "14:00", fin: "16:30", cat: "groupe", titre: "Projet commun : travail solo (avant le build de mardi)" },
   ],
   "2026-11-06": [
