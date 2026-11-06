@@ -27,7 +27,7 @@ sous forme de PWA publiée sur https://trijeux.github.io/Calendrier-de-Vie/ (Git
 - Rendez-vous avec le prof du mémoire : uniquement le jeudi (permanence 10h-18h, visio ou Octagone).
 
 ## Semaine type
-- Lun-mer : 9h30-12h et 14h-16h30, avec stand-up du groupe 10h-10h15 (max 10h20). Mer : playtest avec les artistes après le stand-up, jusqu'à 11h. Mar après-midi : build du groupe (l'important du sprint doit être fini avant, surtout avant une MS review). Mer après-midi : tampon imprévus + 2h de perso.
+- Lun-mer : 9h30-12h et 14h-16h30, avec stand-up du groupe 10h-10h15 (max 10h20). Mer : playtest avec les artistes après le stand-up, jusqu'à 11h. Mar 14h : build du groupe (l'important du sprint doit être fini avant, surtout avant une MS review). Mer après-midi : tampon imprévus + 2h de perso.
 - Lun après-midi : Projet commun en solo (avant le build du mardi).
 - Jeu : Projet commun avec le groupe (discussions et décisions, pas que du travail solo). Ven : cours à l'Octagone (Spé), sinon 2h de perso.
   Les semaines avec cours le vendredi, les 2h de perso passent au mardi après-midi.

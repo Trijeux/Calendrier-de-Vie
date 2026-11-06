@@ -238,7 +238,7 @@ const FIN_ANNEE = "2027-07-26";
 const HORAIRES_ECOLE = [["09:30", "12:30"], ["13:30", "16:30"]];
 
 // Petit rappel, affiché sur les mardis.
-const INFO_MARDI = "Build du groupe à faire cet après-midi (pour le playtest de demain) : ce qui est important dans le sprint doit être fini avant.";
+const INFO_MARDI = "Build du groupe à 14h (pour le playtest de demain) : ce qui est important dans le sprint doit être fini avant, donc lundi après-midi ou ce matin au plus tard.";
 
 // Petit rappel, affiché sur les jeudis.
 const INFO_JEUDI = "Permanence mémoires 10h-18h (rendez-vous avec le prof possible)";
