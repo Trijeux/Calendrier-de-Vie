@@ -296,3 +296,5 @@ button { font: inherit; color: inherit; }
 .conflits { border-left: 4px solid var(--alerte); background: var(--alerte-fond); border-color: transparent; border-left-color: var(--alerte); }
 .conflits .conseil-sur { color: var(--alerte); }
 .note-conflit { color: var(--alerte); font-weight: 700; }
+.echeance.rappel { --cat: var(--c-groupe); }
+.rappels .echeances { margin-top: 6px; }

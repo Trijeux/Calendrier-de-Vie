@@ -322,6 +322,20 @@
     return b;
   }
 
+  // Rappels sans date : cochables, disparaissent une fois cochés.
+  const rappelId = (x) => x.id || `rap-${x.titre}`;
+  const rappelsOuverts = () => (P.RAPPELS || []).filter((x) => !fait(rappelId(x)));
+  function rappelEl(x) {
+    const id = rappelId(x);
+    const li = el("li", `echeance rappel${fait(id) ? " passee" : ""}`);
+    li.append(caseEl(id, x.titre));
+    const g = el("div", "ech-gauche");
+    g.append(el("span", "ech-titre", x.titre));
+    if (x.note) g.append(el("span", "ech-note", x.note));
+    li.append(g);
+    return li;
+  }
+
   // ---------- Vues ----------
   function vueAujourdhui() {
     const ref = aujourdhui();
@@ -365,17 +379,12 @@
       root.append(k);
     }
 
-    const rappels = P.RAPPELS || [];
+    const rappels = rappelsOuverts();
     if (rappels.length) {
       const r = el("div", "carte rappels");
       r.append(el("p", "conseil-sur", "En attente, à ne pas oublier"));
-      const ul = el("ul", "rappels-liste");
-      rappels.forEach((x) => {
-        const li = el("li");
-        li.append(el("span", "ech-titre", x.titre));
-        if (x.note) li.append(el("span", "ech-note", x.note));
-        ul.append(li);
-      });
+      const ul = el("ul", "echeances");
+      rappels.forEach((x) => ul.append(rappelEl(x)));
       r.append(ul);
       root.append(r);
     }
@@ -488,6 +497,14 @@
 
     const taches = TACHES.filter((t) => voirPassees || (!fait(t.id) && t.echeance >= r))
       .sort((x, y) => x.pour.localeCompare(y.pour));
+    const sansDate = voirPassees ? (P.RAPPELS || []) : rappelsOuverts();
+    if (sansDate.length) {
+      root.append(el("h2", "sous-titre", "Sans date"));
+      const ulr = el("ul", "echeances");
+      sansDate.forEach((x) => ulr.append(rappelEl(x)));
+      root.append(ulr);
+    }
+
     root.append(el("h2", "sous-titre", "Tâches"));
     if (taches.length) {
       const ul = el("ul", "echeances");

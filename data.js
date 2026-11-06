@@ -214,8 +214,10 @@ const TACHES = [
 //  Rappels sans date : affichés tous les jours sur l'écran Aujourd'hui,
 //  jusqu'à ce qu'on les retire d'ici.
 // ---------------------------------------------------------------------
+// "id" permet de les cocher (une fois cochés, ils disparaissent). Ne jamais changer un id.
 const RAPPELS = [
-  { titre: "Confirmer la date de l'état de l'art", note: "Vendredi 18 décembre ou vendredi 8 janvier ? À vérifier avec le prof." },
+  { id: "rap-date-eda",  titre: "Confirmer la date de l'état de l'art", note: "Vendredi 18 décembre ou vendredi 8 janvier ? À vérifier avec le prof." },
+  { id: "rap-rembt-claude", titre: "Faire la demande de remboursement de Claude" },
 ];
 
 // ---------------------------------------------------------------------
