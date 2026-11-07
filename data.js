@@ -124,7 +124,7 @@ const ECHEANCES = [
 // ---------------------------------------------------------------------
 const SEMAINES = {
   "2026-11-02": { focus: "jeu",     conseil: "Reprise en douceur. Commence à rassembler les sources de l'état de l'art." },
-  "2026-11-09": { focus: "memoire", conseil: "État de l'art : sources principales et inspirations." },
+  "2026-11-09": { focus: "memoire", conseil: "Mardi tu donnes ton cours toute la journée : ta partie du sprint doit être finie lundi. Le mémoire n'a que mercredi 11h-12h cette semaine, donc la liste des sources est décalée au 20 novembre. Pas de rattrapage le soir." },
   "2026-11-16": { focus: "perso",   conseil: "Prépare la présentation perso du 26 novembre, sans y passer plus que tes heures perso. Sprint 3 review du groupe vendredi matin, à distance." },
   "2026-11-23": { focus: "jeu",     conseil: "Présentation perso jeudi 13h30. Le reste de la semaine reste normal." },
   "2026-11-30": { focus: "memoire", conseil: "Vise un premier jet complet de l'état de l'art. Sprint 4 review du groupe jeudi matin, à distance." },
@@ -140,6 +140,10 @@ const SEMAINES = {
 //  Journées particulières (remplacent la semaine type ce jour-là).
 // ---------------------------------------------------------------------
 const JOURS = {
+  "2026-11-10": [
+    { debut: "09:30", fin: "12:30", cat: "cours", titre: "Tu donnes le cours de génération procédurale" },
+    { debut: "13:30", fin: "16:30", cat: "cours", titre: "Tu donnes le cours de génération procédurale" },
+  ],
   "2026-11-09": [
     { debut: "09:30", fin: "10:00", cat: "jeu",    titre: "Projet bachelor (jeu)" },
     { debut: "10:00", fin: "10:15", cat: "groupe", titre: "Stand-up meeting (max 10h20)" },
@@ -195,7 +199,7 @@ const JOURS = {
 //  (c'est lui qui garde la coche sur le téléphone).
 // ---------------------------------------------------------------------
 const TACHES = [
-  { id: "mem-sources",     cat: "memoire", pour: "2026-11-13", echeance: "2026-12-18", titre: "État de l'art : liste des sources principales" },
+  { id: "mem-sources",     cat: "memoire", pour: "2026-11-20", echeance: "2026-12-18", titre: "État de l'art : liste des sources principales" },
   { id: "jeu-demo-17",     cat: "jeu",     pour: "2026-11-23", echeance: "2026-12-17", titre: "Jeu : décider ce que tu montres le 17 décembre" },
   { id: "perso-pres",      cat: "perso",   pour: "2026-11-25", echeance: "2026-11-26", titre: "Préparer la présentation perso (Solo Rhyme + jeu de cartes)" },
   { id: "mem-inspi",       cat: "memoire", pour: "2026-11-27", echeance: "2026-12-18", titre: "État de l'art : inspirations et modèles d'analyse" },
@@ -226,6 +230,7 @@ const RAPPELS = [
 //  On les retire d'ici une fois réglés.
 // ---------------------------------------------------------------------
 const CONFLITS = [
+  { date: "2026-11-10", titre: "Stand-up (10h) et build du groupe (14h) pendant ton cours de génération procédurale", detail: "Préviens le groupe que tu manques le stand-up, et finis ta partie du sprint lundi pour qu'un autre lance le build." },
   { date: "2026-11-20", titre: "Sprint 3 review (à distance, matin) et cours de Spé", detail: "Vérifie l'heure du cours ; sinon, préviens le groupe." },
   { date: "2026-12-17", titre: "Sprint 5 review (à distance, matin) et présentation du jeu (9h30-16h30)", detail: "Demande au groupe ou au prof si tu peux passer à un autre moment." },
 ];
