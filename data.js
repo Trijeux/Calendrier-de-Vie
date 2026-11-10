@@ -221,7 +221,6 @@ const TACHES = [
 // "id" permet de les cocher (une fois cochés, ils disparaissent). Ne jamais changer un id.
 const RAPPELS = [
   { id: "rap-date-eda",  titre: "Confirmer la date de l'état de l'art", note: "Vendredi 18 décembre ou vendredi 8 janvier ? À vérifier avec le prof." },
-  { id: "rap-rembt-claude", titre: "Faire la demande de remboursement de Claude" },
 ];
 
 // ---------------------------------------------------------------------
@@ -230,7 +229,6 @@ const RAPPELS = [
 //  On les retire d'ici une fois réglés.
 // ---------------------------------------------------------------------
 const CONFLITS = [
-  { date: "2026-11-10", titre: "Stand-up (10h) et build du groupe (14h) pendant ton cours de génération procédurale", detail: "Préviens le groupe que tu manques le stand-up, et finis ta partie du sprint lundi pour qu'un autre lance le build." },
   { date: "2026-11-20", titre: "Sprint 3 review (à distance, matin) et cours de Spé", detail: "Vérifie l'heure du cours ; sinon, préviens le groupe." },
   { date: "2026-12-17", titre: "Sprint 5 review (à distance, matin) et présentation du jeu (9h30-16h30)", detail: "Demande au groupe ou au prof si tu peux passer à un autre moment." },
 ];
