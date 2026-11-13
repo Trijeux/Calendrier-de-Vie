@@ -60,7 +60,6 @@ const SEMAINE_TYPE = {
 const VENDREDIS_SPE = [
   ["2026-11-06", "Cours de Spé 1/9"],
   ["2026-11-13", "Cours de Spé 2/9"],
-  ["2026-11-20", "Cours de Spé 3/9"],
   ["2026-11-27", "Cours de Spé 4/9"],
   ["2026-12-04", "Cours de Spé 5/9"],
   ["2026-12-11", "Cours de Spé 6/9"],
@@ -84,7 +83,7 @@ const FERMETURES = [
 // ---------------------------------------------------------------------
 const ECHEANCES = [
   { date: "2026-11-05", heure: "09:30", cat: "groupe",  titre: "MS1 review : Foundations (groupe)" },
-  { date: "2026-11-20", heure: "matin", cat: "groupe",  titre: "Sprint 3 review (groupe, à distance)", note: "Exceptionnellement un vendredi." },
+  { date: "2026-11-20", heure: "09:30", cat: "groupe",  titre: "Sprint 3 review (groupe, à distance)", note: "Exceptionnellement un vendredi, pas de cours de Spé ce jour-là." },
   { date: "2026-12-03", heure: "matin", cat: "groupe",  titre: "Sprint 4 review (groupe, à distance)" },
   { date: "2026-12-17", heure: "matin", cat: "groupe",  titre: "Sprint 5 review (groupe, à distance)", note: "Même jour que la présentation du jeu : à vérifier avec le groupe." },
   { date: "2026-12-22", heure: "14:00", cat: "groupe",  titre: "Build final avant la MS2 review (groupe)" },
@@ -164,8 +163,8 @@ const JOURS = {
     { debut: "13:30", fin: "",      cat: "perso",  titre: "Présentation des projets perso", lieu: "Salle Leman" },
   ],
   "2026-11-20": [
-    { debut: "09:30", fin: "12:30", cat: "cours",  titre: "Cours de Spé 3/9 + Sprint 3 review à distance (conflit)", lieu: "Octagone" },
-    { debut: "13:30", fin: "16:30", cat: "cours",  titre: "Cours de Spé 3/9", lieu: "Octagone" },
+    { debut: "09:30", fin: "12:30", cat: "groupe", titre: "Sprint 3 review (à distance) · avec les profs" },
+    { debut: "14:00", fin: "16:00", cat: "perso",  titre: "Projets perso (2h)" },
   ],
   "2026-12-17": [
     { debut: "matin", cat: "groupe", titre: "Sprint 5 review (à distance) : à vérifier, même jour que ta présentation" },
@@ -229,7 +228,6 @@ const RAPPELS = [
 //  On les retire d'ici une fois réglés.
 // ---------------------------------------------------------------------
 const CONFLITS = [
-  { date: "2026-11-20", titre: "Sprint 3 review (à distance, matin) et cours de Spé", detail: "Vérifie l'heure du cours ; sinon, préviens le groupe." },
   { date: "2026-12-17", titre: "Sprint 5 review (à distance, matin) et présentation du jeu (9h30-16h30)", detail: "Demande au groupe ou au prof si tu peux passer à un autre moment." },
 ];
 
