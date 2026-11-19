@@ -90,9 +90,8 @@ const ECHEANCES = [
   { date: "2026-12-23", heure: "",      cat: "groupe",  titre: "MS2 review : PoC / boucle principale (groupe, présentiel)", note: "Exceptionnellement un mercredi." },
   { date: "2026-11-26", heure: "13:30", cat: "perso",   titre: "Présentation des projets perso (Solo Rhyme + jeu de cartes)", lieu: "Salle Leman" },
   { date: "2026-12-17", heure: "09:30", cat: "jeu",     titre: "F3 Présentation Advanced Specialised Project (le jeu)" },
-  { date: "2026-12-18", heure: "09:30", cat: "memoire", titre: "Présentation notée de l'état de l'art", a_confirmer: true, note: "Le prof l'indique le 18 déc, le calendrier école le 8 janv." },
+  { date: "2026-12-18", heure: "09:30", cat: "groupe",  titre: "Présentation du projet de Spé (Projet commun)" },
   { date: "2026-12-18", heure: "23:59", cat: "jeu",     titre: "F3 Rendu Advanced Specialised Project (le jeu)" },
-  { date: "2027-01-08", heure: "09:30", cat: "memoire", titre: "F1.2 Présentation orale : état de l'art", a_confirmer: true, note: "Tombe pendant la fermeture de l'école : probablement remplacé par le 18 déc." },
   { date: "2027-01-14", heure: "11:10", cat: "groupe",  titre: "Sprint 6 review (groupe)" },
   { date: "2027-01-15", heure: "09:30", cat: "memoire", titre: "Rendu du Major Project Proposal (Portfolio Creative Studio 3)" },
   { date: "2027-01-29", heure: "09:30", cat: "memoire", titre: "F1.3 Présentation orale : méthodologie" },
@@ -126,9 +125,9 @@ const SEMAINES = {
   "2026-11-09": { focus: "memoire", conseil: "Mardi tu donnes ton cours toute la journée : ta partie du sprint doit être finie lundi. Le mémoire n'a que mercredi 11h-12h cette semaine, donc la liste des sources est décalée au 20 novembre. Pas de rattrapage le soir." },
   "2026-11-16": { focus: "perso",   conseil: "Prépare la présentation perso du 26 novembre, sans y passer plus que tes heures perso. Sprint 3 review du groupe vendredi matin, à distance." },
   "2026-11-23": { focus: "jeu",     conseil: "Présentation perso jeudi 13h30. Le reste de la semaine reste normal." },
-  "2026-11-30": { focus: "memoire", conseil: "Vise un premier jet complet de l'état de l'art. Sprint 4 review du groupe jeudi matin, à distance." },
-  "2026-12-07": { focus: "jeu",     conseil: "Prépare la présentation du jeu du 17. Termine l'état de l'art si c'est bien le 18." },
-  "2026-12-14": { focus: "jeu",     conseil: "Grosse semaine : présentation du jeu jeudi, état de l'art et rendu vendredi. Le groupe entre en stabilisation (STAB) : seulement des corrections, pas de nouvelle feature. Projets perso au strict minimum." },
+  "2026-11-30": { focus: "memoire", conseil: "Avance l'état de l'art tranquillement (présentation en janvier). Sprint 4 review du groupe jeudi matin, à distance." },
+  "2026-12-07": { focus: "jeu",     conseil: "Prépare la présentation du jeu du 17 et celle du projet de Spé du 18. L'état de l'art peut attendre janvier." },
+  "2026-12-14": { focus: "jeu",     conseil: "Grosse semaine : présentation du jeu jeudi, présentation du projet de Spé et rendu du jeu vendredi. Le groupe entre en stabilisation (STAB) : seulement des corrections, pas de nouvelle feature. Projets perso au strict minimum." },
   "2026-12-21": { focus: "jeu",     conseil: "Fin de la STAB du groupe et MS2 review mercredi 23 (présentiel). Lundi et mardi calmes, puis repos complet dès le 24." },
   "2026-12-28": { focus: "repos",   conseil: "Repos. Rien à faire." },
   "2027-01-04": { focus: "groupe",  conseil: "École fermée, sprint vacances pour le groupe (pas besoin de beaucoup bosser). Priorité au Major Project Proposal." },
@@ -179,8 +178,8 @@ const JOURS = {
     { debut: "14:00", fin: "16:30", cat: "groupe", titre: "Groupe : sprint vacances (léger)" },
   ],
   "2026-12-18": [
-    { debut: "09:30", fin: "",      cat: "memoire", titre: "Présentation de l'état de l'art (à confirmer)" },
-    { debut: "",      fin: "23:59", cat: "jeu",     titre: "Rendu du jeu avant 23h59" },
+    { debut: "09:30", fin: "12:30", cat: "groupe", titre: "Présentation du projet de Spé (Projet commun)" },
+    { debut: "",      fin: "23:59", cat: "jeu",    titre: "Rendu du jeu avant 23h59" },
   ],
   "2027-01-14": [
     { debut: "09:30", fin: "11:10", cat: "groupe", titre: "Derniers réglages" },
@@ -198,14 +197,15 @@ const JOURS = {
 //  (c'est lui qui garde la coche sur le téléphone).
 // ---------------------------------------------------------------------
 const TACHES = [
-  { id: "mem-sources",     cat: "memoire", pour: "2026-11-20", echeance: "2026-12-18", titre: "État de l'art : liste des sources principales" },
+  { id: "mem-sources",     cat: "memoire", pour: "2026-11-20", echeance: "2027-01-11", titre: "État de l'art : liste des sources principales" },
   { id: "jeu-demo-17",     cat: "jeu",     pour: "2026-11-23", echeance: "2026-12-17", titre: "Jeu : décider ce que tu montres le 17 décembre" },
   { id: "perso-pres",      cat: "perso",   pour: "2026-11-25", echeance: "2026-11-26", titre: "Préparer la présentation perso (Solo Rhyme + jeu de cartes)" },
-  { id: "mem-inspi",       cat: "memoire", pour: "2026-11-27", echeance: "2026-12-18", titre: "État de l'art : inspirations et modèles d'analyse" },
-  { id: "mem-jet",         cat: "memoire", pour: "2026-12-04", echeance: "2026-12-18", titre: "État de l'art : premier jet complet" },
+  { id: "mem-inspi",       cat: "memoire", pour: "2026-11-27", echeance: "2027-01-11", titre: "État de l'art : inspirations et modèles d'analyse" },
+  { id: "mem-jet",         cat: "memoire", pour: "2026-12-11", echeance: "2027-01-11", titre: "État de l'art : premier jet complet" },
   { id: "jeu-version",     cat: "jeu",     pour: "2026-12-09", echeance: "2026-12-17", titre: "Jeu : version présentable" },
-  { id: "mem-support",     cat: "memoire", pour: "2026-12-11", echeance: "2026-12-18", titre: "État de l'art : support de présentation" },
+  { id: "mem-support",     cat: "memoire", pour: "2027-01-07", echeance: "2027-01-11", titre: "État de l'art : support de présentation" },
   { id: "jeu-support",     cat: "jeu",     pour: "2026-12-15", echeance: "2026-12-17", titre: "Jeu : support de présentation" },
+  { id: "grp-pres-spe",    cat: "groupe",  pour: "2026-12-16", echeance: "2026-12-18", titre: "Préparer la présentation du projet de Spé (Projet commun)" },
   { id: "jeu-rendu-f3",    cat: "jeu",     pour: "2026-12-18", echeance: "2026-12-18", titre: "Jeu : déposer le rendu F3" },
   { id: "prop-plan",       cat: "memoire", pour: "2027-01-06", echeance: "2027-01-15", titre: "Major Project Proposal : plan" },
   { id: "grp-stab",        cat: "groupe",  pour: "2026-12-22", echeance: "2026-12-23", titre: "Groupe : stabilisation avant la MS2 review" },
@@ -219,7 +219,7 @@ const TACHES = [
 // ---------------------------------------------------------------------
 // "id" permet de les cocher (une fois cochés, ils disparaissent). Ne jamais changer un id.
 const RAPPELS = [
-  { id: "rap-date-eda",  titre: "Confirmer la date de l'état de l'art", note: "Vendredi 18 décembre ou vendredi 8 janvier ? À vérifier avec le prof." },
+  { id: "rap-date-eda",  titre: "Confirmer la date de l'état de l'art", note: "En janvier, date précise à venir. Les tâches ont une limite provisoire au 11 janvier." },
 ];
 
 // ---------------------------------------------------------------------

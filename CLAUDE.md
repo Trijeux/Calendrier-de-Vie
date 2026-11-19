@@ -44,5 +44,5 @@ sous forme de PWA publiée sur https://trijeux.github.io/Calendrier-de-Vie/ (Git
 - Semaine STAB avant chaque MS. SP6 (24/12 au 14/01) = sprint vacances, léger.
 
 ## Infos en attente (au 05/11/2026)
-- Date de la présentation de l'état de l'art : ven 18 déc 2026 (agenda du prof) ou ven 8 janv 2027 (calendrier école, mais école fermée).
+- Ven 18 déc 2026 = présentation du projet de Spé (Projet commun). La présentation de l'état de l'art (mémoire) est en janvier 2027, date précise à venir (limite provisoire des tâches : 11 janv).
 - Indisponible du 24 déc 2026 au 2 janv 2027. École fermée jusqu'au 8 janv.
