@@ -60,9 +60,9 @@ const SEMAINE_TYPE = {
 const VENDREDIS_SPE = [
   ["2026-11-06", "Cours de Spé 1/9"],
   ["2026-11-13", "Cours de Spé 2/9"],
-  ["2026-11-27", "Cours de Spé 4/9"],
-  ["2026-12-04", "Cours de Spé 5/9"],
-  ["2026-12-11", "Cours de Spé 6/9"],
+  ["2026-11-27", "Cours de Spé 4/9 (pas dans le planning officiel, à vérifier)"],
+  ["2026-12-04", "Level Design (Spé 5/9)"],
+  ["2026-12-11", "Cours de Spé 6/9 (pas dans le planning officiel, à vérifier)"],
   ["2027-02-05", "Cours de Spé 7/9"],
   ["2027-02-12", "Cours de Spé 8/9"],
   ["2027-02-19", "Cours de Spé 9/9"],
@@ -71,11 +71,18 @@ const VENDREDIS_SPE = [
 // Périodes de repos complet (aucun travail affiché).
 const REPOS = [
   { du: "2026-12-24", au: "2027-01-02", titre: "Vacances : repos complet" },
+  { du: "2027-03-26", au: "2027-03-26", titre: "Férié : Vendredi saint" },
+  { du: "2027-03-29", au: "2027-03-29", titre: "Férié : Lundi de Pâques" },
+  { du: "2027-05-06", au: "2027-05-06", titre: "Férié : Ascension" },
+  { du: "2027-05-17", au: "2027-05-17", titre: "Férié : Lundi de Pentecôte" },
 ];
 
 // Fermeture de l'école (on peut travailler, mais pas de cours).
 const FERMETURES = [
   { du: "2026-12-24", au: "2027-01-08", titre: "École fermée (hiver)" },
+  { du: "2027-02-15", au: "2027-02-19", titre: "Semaine summative (période 2) : pas de cours" },
+  { du: "2027-05-03", au: "2027-05-07", titre: "Semaine summative (période 3) : pas de cours" },
+  { du: "2027-07-19", au: "2027-07-23", titre: "Semaine summative (période 4) : pas de cours" },
 ];
 
 // ---------------------------------------------------------------------
@@ -84,7 +91,7 @@ const FERMETURES = [
 const ECHEANCES = [
   { date: "2026-11-05", heure: "09:30", cat: "groupe",  titre: "MS1 review : Foundations (groupe)" },
   { date: "2026-11-20", heure: "09:30", cat: "groupe",  titre: "Sprint 3 review (groupe, à distance)", note: "Exceptionnellement un vendredi, pas de cours de Spé ce jour-là." },
-  { date: "2026-12-03", heure: "matin", cat: "groupe",  titre: "Sprint 4 review (groupe, à distance)" },
+  { date: "2026-12-03", heure: "09:30", cat: "groupe",  titre: "Sprint 4 review (groupe, à distance)" },
   { date: "2026-12-17", heure: "matin", cat: "groupe",  titre: "Sprint 5 review (groupe, à distance)", note: "Même jour que la présentation du jeu : à vérifier avec le groupe." },
   { date: "2026-12-22", heure: "14:00", cat: "groupe",  titre: "Build final avant la MS2 review (groupe)" },
   { date: "2026-12-23", heure: "",      cat: "groupe",  titre: "MS2 review : PoC / boucle principale (groupe, présentiel)", note: "Exceptionnellement un mercredi." },
@@ -92,7 +99,7 @@ const ECHEANCES = [
   { date: "2026-12-17", heure: "09:30", cat: "jeu",     titre: "F3 Présentation Advanced Specialised Project (le jeu)" },
   { date: "2026-12-18", heure: "09:30", cat: "groupe",  titre: "Présentation du projet de Spé (Projet commun)" },
   { date: "2026-12-18", heure: "23:59", cat: "jeu",     titre: "F3 Rendu Advanced Specialised Project (le jeu)" },
-  { date: "2027-01-14", heure: "11:10", cat: "groupe",  titre: "Sprint 6 review (groupe)" },
+  { date: "2027-01-14", heure: "09:30", cat: "groupe",  titre: "Sprint 6 review (groupe)", lieu: "Petit Muveran" },
   { date: "2027-01-15", heure: "09:30", cat: "memoire", titre: "Rendu du Major Project Proposal (Portfolio Creative Studio 3)" },
   { date: "2027-01-29", heure: "09:30", cat: "memoire", titre: "F1.3 Présentation orale : méthodologie" },
   { date: "2027-02-04", heure: "",      cat: "groupe",  titre: "Sprint 7 review (groupe)" },
@@ -138,6 +145,10 @@ const SEMAINES = {
 //  Journées particulières (remplacent la semaine type ce jour-là).
 // ---------------------------------------------------------------------
 const JOURS = {
+  "2026-12-03": [
+    { debut: "09:30", fin: "12:30", cat: "groupe", titre: "Sprint 4 review (à distance, avec les profs)" },
+    { debut: "14:00", fin: "16:30", cat: "groupe", titre: "Projet commun : discussions et décisions avec le groupe" },
+  ],
   "2026-11-10": [
     { debut: "09:30", fin: "12:30", cat: "cours", titre: "Tu donnes le cours de génération procédurale" },
     { debut: "13:30", fin: "16:30", cat: "cours", titre: "Tu donnes le cours de génération procédurale" },
@@ -182,9 +193,8 @@ const JOURS = {
     { debut: "",      fin: "23:59", cat: "jeu",    titre: "Rendu du jeu avant 23h59" },
   ],
   "2027-01-14": [
-    { debut: "09:30", fin: "11:10", cat: "groupe", titre: "Derniers réglages" },
-    { debut: "11:10", fin: "12:30", cat: "groupe", titre: "Sprint 6 review (avec les profs)" },
-    { debut: "13:30", fin: "16:30", cat: "groupe", titre: "Projet commun (avec les profs)" },
+    { debut: "09:30", fin: "12:30", cat: "groupe", titre: "Sprint 6 review (avec les profs)", lieu: "Petit Muveran" },
+    { debut: "13:30", fin: "16:30", cat: "groupe", titre: "Sprint 6 review (avec les profs)", lieu: "Petit Muveran" },
   ],
   "2027-01-15": [
     { debut: "09:30", fin: "",      cat: "memoire", titre: "Rendu du Major Project Proposal" },
@@ -228,6 +238,9 @@ const RAPPELS = [
 //  On les retire d'ici une fois réglés.
 // ---------------------------------------------------------------------
 const CONFLITS = [
+  { date: "2026-12-18", titre: "Le planning officiel indique la présentation notée de l'état de l'art (toute la journée), pas celle du projet de Spé", detail: "Vérifie avec le prof laquelle des deux a lieu le 18. Pour l'instant l'appli garde ta version (projet de Spé)." },
+  { date: "2026-12-23", titre: "MS2 review du groupe absente du planning officiel", detail: "Vérifie avec Nicolas Brière qu'elle a bien lieu le mercredi 23." },
+  { date: "2027-02-19", titre: "Cours de Spé 9/9 pendant la semaine summative (pas de cours prévu)", detail: "Probablement annulé ou déplacé : à vérifier." },
   { date: "2026-12-17", titre: "Sprint 5 review (à distance, matin) et présentation du jeu (9h30-16h30)", detail: "Demande au groupe ou au prof si tu peux passer à un autre moment." },
 ];
 

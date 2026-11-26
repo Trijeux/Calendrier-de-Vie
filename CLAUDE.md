@@ -43,6 +43,10 @@ sous forme de PWA publiée sur https://trijeux.github.io/Calendrier-de-Vie/ (Git
 - Reviews le jeudi (sauf exceptions) : MS1 05/11, SP3 ven 20/11 (distance), SP4 03/12 (distance), SP5 17/12 (distance), MS2 mer 23/12, SP6 14/01, SP7 04/02, MS3 11/02, SP8 25/02, SP9 11/03, SP10 25/03, SP11 08/04, MS4 15/04, SP12 29/04, SP13 13/05, SP14 27/05, SP15 10/06, MS5 17/06.
 - Semaine STAB avant chaque MS. SP6 (24/12 au 14/01) = sprint vacances, léger.
 
+## Planning officiel de l'école
+- Export CSV du 26/11/2026 dans les fichiers du projet (`planning/planning-ecole-2026-11-26.csv`). Classe de l'utilisateur : GP-924.
+- Semaines summatives (pas de cours) : 16-20/11, 15-19/02, 03-07/05, 19-23/07 ; corrections 26-30/07. Fériés : 26/03, 29/03, 06/05, 17/05.
+
 ## Infos en attente (au 05/11/2026)
 - Ven 18 déc 2026 = présentation du projet de Spé (Projet commun). La présentation de l'état de l'art (mémoire) est en janvier 2027, date précise à venir (limite provisoire des tâches : 11 janv).
 - Indisponible du 24 déc 2026 au 2 janv 2027. École fermée jusqu'au 8 janv.
